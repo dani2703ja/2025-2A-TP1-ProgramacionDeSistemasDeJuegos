@@ -7,6 +7,7 @@ namespace Excercise1
     {
         [SerializeField] private float speed = 5;
         [SerializeField] private string playerId = "Player";
+      
         private ICharacter _player;
         private string _logTag;
 
@@ -20,8 +21,9 @@ namespace Excercise1
         {
             base.OnEnable();
             //TODO: Get the reference to the player.
+            _player = characterService.GetCharacterById(playerId);
             if (_player == null)
-                Debug.LogError($"{_logTag} Player not found!");
+                Debug.LogError($"{_logTag} Player not found ");
         }
 
         private void Update()
